@@ -18,6 +18,7 @@ def api():
         return jsonify(1)
     if request.method == 'POST':
         result = CLIENT.infer(request.form['img'], model_id="yolov8-skin-disease-detection/1")
+        return jsonify(2)
         return result
 
 @app.route('/favicon.ico') 
