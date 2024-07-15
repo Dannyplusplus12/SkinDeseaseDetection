@@ -9,7 +9,7 @@ from inference_sdk import InferenceHTTPClient
 app = Flask(__name__)
 
 @app.route("/")
-def app():
+def dash():
     return render_template('app.html')
 
 # @app.route("/api", methods=['GET', 'POST'])
