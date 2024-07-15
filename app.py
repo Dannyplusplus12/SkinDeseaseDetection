@@ -6,13 +6,13 @@ from inference_sdk import InferenceHTTPClient
 #     api_key="kTK0gAawSv3eqEDeXfAs"
 # )
 
-web = Flask(__name__)
+app = Flask(__name__)
 
-@web.route("/")
+@app.route("/")
 def app():
     return render_template('app.html')
 
-# @web.route("/api", methods=['GET', 'POST'])
+# @app.route("/api", methods=['GET', 'POST'])
 # def api():
 #     if request.method == 'GET':
 #         return jsonify(1)
@@ -20,7 +20,7 @@ def app():
 #         result = CLIENT.infer(request.form['img'], model_id="yolov8-skin-disease-detection/1")
 #         return result
 
-@web.route('/favicon.ico') 
+@app.route('/favicon.ico') 
 def favicon(): 
     return jsonify(1)
 
