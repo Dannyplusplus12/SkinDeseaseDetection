@@ -66,27 +66,27 @@ webcamBtn.addEventListener('click', async function() {
 
 });
 
-async function predict() {
-    const url = "/api";
-    let data = new FormData()
-    data.append("img", displayImage.src)
-    try {
-        const response = await fetch(
-            url,
-            {
-                "method": "POST",
-                "body": data
-            }
-        );
-        if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`);
-        }
 
-        const json = await response.json();
-        console.log(json);
-    } catch (error) {
-        console.error(error.message);
-    }
-    // console.log(response)
-  }
+async function predict() {
+
+    const image = displayImage.src;
+
+    axios({
+        method: "POST",
+        url: "https://detect.roboflow.com/yolov8-skin-disease-detection/1",
+        params: {
+            api_key: "kTK0gAawSv3eqEDeXfAs"
+        },
+        data: image,
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        }
+    })
+    .then(function(response) {
+        console.log(response.data);
+    })
+    .catch(function(error) {
+        console.log(error.message);
+    });
+}
   

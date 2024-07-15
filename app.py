@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify
+import asyncio
 
 from inference_sdk import InferenceHTTPClient
 CLIENT = InferenceHTTPClient(
@@ -12,18 +13,9 @@ app = Flask(__name__)
 def dash():
     return render_template('app.html')
 
-@app.route("/api", methods=['GET', 'POST'])
-def api():
-    if request.method == 'GET':
-        return jsonify(1)
-    if request.method == 'POST':
-        result = CLIENT.infer(request.form['img'], model_id="yolov8-skin-disease-detection/1")
-        return jsonify(2)
-        return result
-
 @app.route('/favicon.ico') 
 def favicon(): 
     return jsonify(1)
 
-# if __name__ == '__main__':
-#    web.run(host='0.0.0.0', debug=True)
+if __name__ == '__main__':
+   app.run(host='0.0.0.0', debug=True)
