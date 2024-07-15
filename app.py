@@ -20,8 +20,8 @@ def api():
         result = CLIENT.infer(request.form['img'], model_id="yolov8-skin-disease-detection/1")
         return result
 
-if __name__ == '__main__':
-   web.run(host='0.0.0.0', debug=True)
+# if __name__ == '__main__':
+#    web.run(host='0.0.0.0', debug=True)
 
 
 
