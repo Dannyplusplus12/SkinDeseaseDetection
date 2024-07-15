@@ -1,0 +1,177 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: Pangolin;
+    src: url(../fonts/Pangolin/Pangolin-Regular.ttf);
+}
+
+:root {
+    --main-color: #d2e3fc;
+    --main-text-color: #1967D2;
+}
+
+html {
+    font-family: Pangolin;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.D {
+    color: green;
+}
+
+.name {
+    font-style: bold;
+    font-size: 1.333rem;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.width-50 {
+    width: 50%;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.height-50 {
+    height: 50%;
+}
+
+#main {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    background-color: #c9c9c9;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.file-upload {
+    width: 100%;
+    height: 170px;
+    border-radius: 4px;
+    background-color: #D2E3FC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    cursor: pointer;
+    color: #1967D2;
+    font-size: 1.2rem;
+}
+
+#display-image {
+    max-width: 460px;
+    max-height: 460px;
+}
+
+a {
+    color: initial;
+    font-size: 1.3rem;
+}
+
+#nav {
+    width: 100%;
+    justify-content: space-between;
+}
+
+#nav a {
+    display: block;
+    width: 50%;
+    text-align: center;
+    padding: 12px;
+    font-weight: 700;
+    font-size: 1.6rem;
+    text-decoration: none;
+    letter-spacing: 0.2rem;
+}
+
+#content {
+    min-width: 80%;
+    padding: 40px;
+}
+
+#upload-zone {
+    width: 100%;
+}
+
+#url-box {
+    border-radius: 4px;
+    border: none;
+    font-size: 1.2rem;
+    width: 72%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    background-color: #ebebeb;
+}
+
+#url-submit {
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    width: 26%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    color: var(--main-text-color);
+    background-color: var(--main-color);
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: Pangolin;
+    letter-spacing: 0.33rem;
+}
+
+#webcam-btn {
+    border-radius: 4px;
+    font-size: 1.2rem;
+    width: 26%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    color: var(--main-text-color);
+    background-color: var(--main-color);
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: Pangolin;
+}
+
+#info-parent #information {
+    display: none;
+    padding: 0px 16px 16px 16px;
+    left: 69px;
+    top: 84px;
+    position: absolute;
+    background-color: white;
+    box-shadow: white 5px 5px 5px;
+}
+
+#info-parent:hover #information {
+    display: block;
+}
