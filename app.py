@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request, jsonify
-import asyncio
+from flask import Flask, render_template, request, jsonify, redirect
+import asyncio, os
 
 from inference_sdk import InferenceHTTPClient
 CLIENT = InferenceHTTPClient(
@@ -13,8 +13,11 @@ app = Flask(__name__)
 def dash():
     return render_template('app.html')
 
-@app.route('/favicon.ico') 
-def favicon(): 
+UPLOAD_FOLDER = '/img'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+@app.route('/favicon.ico')
+def favicon():
     return jsonify(1)
 
 if __name__ == '__main__':
