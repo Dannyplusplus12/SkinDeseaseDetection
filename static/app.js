@@ -101,6 +101,11 @@ updateResult = (result, url) => {
     document.querySelectorAll('.box').forEach(e => e.remove());
 
     imageResult.src = url
+    imageResult.addEventListener('load', () => {
+        if(imageResult.offsetWidth > displayResult.offsetWidth) {
+            displayResult.style.scale = `${50 / (imageResult.offsetWidth / displayResult.offsetWidth)}%`
+        }
+    })
     predictions = result.predictions
     
     color_index = 0
@@ -114,7 +119,11 @@ updateResult = (result, url) => {
 
         box = document.createElement("div")
         box.classList.add("box")
-        box.style.cssText = `left:${value.x}px;top:${value.y}px;width:${value.width}px;height:${value.height}px;background-color:${deseases[value.class]}`
+        box.style.cssText = `left:${value.x}px;
+                            top:${value.y}px;
+                            width:${value.width}px;
+                            height:${value.height}px;
+                            background-color:${deseases[value.class]}`
 
         displayResult.appendChild(box)
     });
@@ -126,7 +135,7 @@ updateResult = (result, url) => {
         color_rect.style.cssText = `background-color:${deseases[key]}`
         x.appendChild(color_rect)
         predict = document.createElement("div")
-        predict.innerHTML = `<a href="${link[key]}">${trans[key]}</a>`
+        predict.innerHTML = `${trans[key]}  >>  <a href="${link[key]}">Nhấp vào đây để tìm hiểu về ${trans[key]}</a>`
         x.appendChild(predict)
         Result.appendChild(x)
     }
