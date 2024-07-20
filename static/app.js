@@ -26,7 +26,7 @@ async function getImgByFile(event){
     file = event.target.files[0];
     image = await loadImageBase64(file);
     let url = window.URL.createObjectURL(file);
-    
+    loading.classList.remove('hide')
     axios({
         method: "POST",
         url: "https://detect.roboflow.com/yolov8-skin-disease-detection/1",
@@ -51,8 +51,10 @@ inputImg?.addEventListener('change', getImgByFile)
 
 const urlBox = document.getElementById('url-box')
 const urlSubmit = document.getElementById('url-submit')
+const loading = document.getElementById('loading')
 urlSubmit.addEventListener('click', () => {
     let url = urlBox.value
+    loading.classList.remove('hide')
     axios({
         method: "POST",
         url: "https://detect.roboflow.com/yolov8-skin-disease-detection/1",
@@ -97,13 +99,14 @@ const imageResult = document.getElementById('image-result')
 const Result = document.getElementById('result')
 
 updateResult = (result, url) => {
+    loading.classList.add('hide')
     Result.innerHTML = '';
     document.querySelectorAll('.box').forEach(e => e.remove());
 
     imageResult.src = url
     imageResult.addEventListener('load', () => {
         if(imageResult.offsetWidth > displayResult.offsetWidth) {
-            displayResult.style.scale = `${50 / (imageResult.offsetWidth / displayResult.offsetWidth)}%`
+            displayResult.style.scale = `${100 / (imageResult.offsetWidth / displayResult.offsetWidth)}%`
         }
     })
     predictions = result.predictions
